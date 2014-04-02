@@ -13,9 +13,9 @@ my $hr = Tinkerforge::BrickletHeartRate->new(&UID, $ipcon); # Create device obje
 # Callback function for heart rate reached callback
 sub cb_reached
 {
-    my ($hrate) = @_;
-    print("Heart rate(bpm): $hrate");
-    print "\n";
+    my ($rate) = @_;
+
+    print "Heart rate: $hrate bpm\n";
 }
 
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
@@ -31,7 +31,7 @@ $hr->register_callback($hr->CALLBACK_HEART_RATE_REACHED, 'cb_reached');
 # Heart rate(bpm)  : greater than 60 bpm
 $hr->set_heart_rate_callback_threshold('>', 50, 60);
 
-print "\nPress any key to exit...\n";
+print "Press any key to exit...\n";
 <STDIN>;
 $ipcon->disconnect();
 
