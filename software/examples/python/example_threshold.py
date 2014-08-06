@@ -8,7 +8,7 @@ UID = "abc" # Change to your UID
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_heart_rate import HeartRate
 
-# Callback function for heart rate reached callback (in beats per minute)
+# Callback function for heart rate reached callback (unit is beats per minute)
 def cb_reached(hrate):
     print('Heart rate reached...')
     print('Heart Rate(bpm): ' + str(hrate))
@@ -27,8 +27,8 @@ if __name__ == "__main__":
     # Register threshold reached callback to function cb_reached
     hr.register_callback(hr.CALLBACK_HEART_RATE_REACHED, cb_reached)
 
-    # Configure threshold
-    hr.set_heart_rate_callback_threshold('>', 70, 90)
+    # Configure threshold "greater than 90 bpm"
+    hr.set_heart_rate_callback_threshold('>', 90, 0)
     
     raw_input('Press key to exit\n') # Use input() in Python 3
     ipcon.disconnect()

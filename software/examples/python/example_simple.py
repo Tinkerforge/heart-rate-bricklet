@@ -15,11 +15,10 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    # Get current heart rate(in beats per minute)
+    # Get current heart rate (unit is beats per minute)
     hrate = hr.get_heart_rate()
 
-    print('Heart Rate(bpm): ' + str(hrate))
-    print('')
+    print('Heart Rate: ' + str(hrate) + ' bpm')
 
     raw_input('Press key to exit\n') # Use input() in Python 3
     ipcon.disconnect()

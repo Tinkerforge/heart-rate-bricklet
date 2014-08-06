@@ -8,10 +8,9 @@ UID = "abc" # Change to your UID
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_heart_rate import HeartRate
 
-# Callback function for heart rate callback (in beats per minute)
+# Callback function for heart rate callback (unit is beats per minute)
 def cb_heart_rate(hrate):
-    print('Heart Rate(bpm): ' + str(hrate))
-    print('')
+    print('Heart Rate: ' + str(hrate) + ' bpm')
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection

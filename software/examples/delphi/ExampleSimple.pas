@@ -38,7 +38,7 @@ begin
 
   { Get current heart rate (in beats per minute) }
   hrate := hr.GetHeartRate;
-  WriteLn(Format('Heart Rate(bpm): %d', [hrate]));
+  WriteLn(Format('Heart Rate: %d bpm', [hrate]));
 
   WriteLn('Press key to exit');
   ReadLn;
