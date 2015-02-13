@@ -30,7 +30,7 @@ class Example
 		hr.HeartRate += HeartRateCB;
 
 		System.Console.WriteLine("Press key to exit");
-		System.Console.ReadKey();
+		System.Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

@@ -19,7 +19,7 @@ Module Example
         System.Console.WriteLine("Heart Rate(bpm): " + hrate.ToString())
 
         System.Console.WriteLine("Press key to exit")
-        System.Console.ReadKey()
+        System.Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module
