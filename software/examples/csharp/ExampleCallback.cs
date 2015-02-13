@@ -9,8 +9,8 @@ class Example
 	// Callback function for heart rate callback
 	static void HeartRateCB(BrickletHeartRate sender, int hrate)
 	{
-        System.Console.WriteLine("Heart Rate(bpm): " + hrate);
-        System.Console.WriteLine("");
+		System.Console.WriteLine("Heart Rate(bpm): " + hrate);
+		System.Console.WriteLine("");
 	}
 
 	static void Main() 

@@ -9,8 +9,8 @@ class Example
 	// Callback for color threshold reached
 	static void ReachedCB(BrickletHeartRate sender, int hrate)
 	{
-        System.Console.WriteLine("Heart Rate(bpm): " + hrate);
-        System.Console.WriteLine("");
+		System.Console.WriteLine("Heart Rate(bpm): " + hrate);
+		System.Console.WriteLine("");
 	}
 
 	static void Main() 
@@ -27,12 +27,12 @@ class Example
 		// Register threshold reached callback to function ReachedCB
 		hr.HeartRateReached += ReachedCB;
 
-        // Configure threshold for heart rate values,
-        // Heart Rate : greater than 70 beats per minute
+		// Configure threshold for heart rate values,
+		// Heart Rate : greater than 70 beats per minute
 		hr.SetHeartRateCallbackThreshold('>', 50, 70);
 
 		System.Console.WriteLine("Press key to exit");
-		System.Console.ReadKey();
+		System.Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }
