@@ -21,7 +21,7 @@ public class ExampleThreshold {
 		// Add and implement heart rate reached listener
 		// Configure threshold for heart rate values,
 		// Heart Rate(in beats per minute)  : greater than 70
-		hr.setHeartRateCallbackThreshold('>', (int)(50), (int)(70));
+		hr.setHeartRateCallbackThreshold('>', 50, 70);
 
 		hr.addHeartRateReachedListener(new BrickletHeartRate.HeartRateReachedListener() {
 			public void heartRateReached(int hrate) {
