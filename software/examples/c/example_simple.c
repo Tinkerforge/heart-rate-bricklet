@@ -30,8 +30,7 @@ int main() {
 		exit(1);
 	}
 
-	printf("Heart Rate(bpm) = %d.\n", hrate);
-	printf("\n");
+	printf("Heart Rate: %d bpm\n", hrate);
 
 	printf("Press key to exit\n");
 	getchar();

@@ -11,8 +11,7 @@
 void cb_reached(uint16_t hrate, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Heart Rate(bpm) = %d\n", hrate);
-	printf("\n");
+	printf("Heart Rate: %d bpm\n", hrate);
 }
 
 int main() {
@@ -36,9 +35,9 @@ int main() {
 
 	// Register threshold reached callback to function cb_reached
 	heart_rate_register_callback(&hr,
-	                              HEART_RATE_CALLBACK_HEART_RATE_REACHED,
-	                              (void *)cb_reached,
-	                              NULL);
+	                             HEART_RATE_CALLBACK_HEART_RATE_REACHED,
+	                             (void *)cb_reached,
+	                             NULL);
 
 	// Configure threshold for heart rate to be greater than 70 beats per minute
 	heart_rate_set_heart_rate_callback_threshold(&hr, '>', 50, 70);
