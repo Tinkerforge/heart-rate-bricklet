@@ -44,8 +44,7 @@
                         // Get current heart rate (in beats per minute)
                         hr.getHeartRate(
                             function(hrate) {
-                                textArea.value += 'Heart Rate(bpm): '+hrate;
-                                textArea.value += '\n';
+                                textArea.value += 'Heart Rate: '+hrate+' BPM\n';
                                 textArea.scrollTop = textArea.scrollHeight;
                             },
                             function(error) {

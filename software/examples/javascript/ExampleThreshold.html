@@ -44,7 +44,7 @@
                         // Set threshold callbacks with a debounce time of 10 seconds (10000ms)
                         hr.setDebouncePeriod(10000);
                         // Configure threshold for heart rate values,
-                        // Heart Rate  : greater than 70 beats per minute
+                        // Heart Rate: greater than 70 beats per minute
                         hr.setHeartRateCallbackThreshold('>', 50, 70);       
                     }
                 );
@@ -52,8 +52,7 @@
                 hr.on(Tinkerforge.BrickletHeartRate.CALLBACK_HEART_RATE_REACHED,
                     // Callback for heart rate threshold reached
                     function(hrate) {
-                        textArea.value += 'Heart Rate(bpm): '+hrate;
-                        textArea.value += '\n';
+                        textArea.value += 'Heart Rate: '+hrate+' BPM\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );
