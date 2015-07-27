@@ -4,16 +4,15 @@ class Example
 {
 	private static string HOST = "localhost";
 	private static int PORT = 4223;
-	private static string UID = "abc"; // Change to your UID
+	private static string UID = "XYZ"; // Change to your UID
 
-	// Callback for color threshold reached
-	static void ReachedCB(BrickletHeartRate sender, int hrate)
+	// Callback function for heart rate greater than 100 bpm (parameter has unit bpm)
+	static void HeartRateReachedCB(BrickletHeartRate sender, int heartRate)
 	{
-		System.Console.WriteLine("Heart Rate(bpm): " + hrate);
-		System.Console.WriteLine("");
+		System.Console.WriteLine("Heart Rate: " + heartRate + " bpm");
 	}
 
-	static void Main() 
+	static void Main()
 	{
 		IPConnection ipcon = new IPConnection(); // Create IP connection
 		BrickletHeartRate hr = new BrickletHeartRate(UID, ipcon); // Create device object
@@ -24,14 +23,13 @@ class Example
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		hr.SetDebouncePeriod(10000);
 
-		// Register threshold reached callback to function ReachedCB
-		hr.HeartRateReached += ReachedCB;
+		// Register threshold reached callback to function HeartRateReachedCB
+		hr.HeartRateReached += HeartRateReachedCB;
 
-		// Configure threshold for heart rate values,
-		// Heart Rate : greater than 70 beats per minute
-		hr.SetHeartRateCallbackThreshold('>', 50, 70);
+		// Configure threshold for "greater than 100 bpm" (unit is bpm)
+		hr.SetHeartRateCallbackThreshold('>', 100, 0);
 
-		System.Console.WriteLine("Press key to exit");
+		System.Console.WriteLine("Press enter to exit");
 		System.Console.ReadLine();
 		ipcon.Disconnect();
 	}

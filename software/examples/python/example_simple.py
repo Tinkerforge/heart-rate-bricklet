@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-  
+# -*- coding: utf-8 -*-
 
 HOST = "localhost"
 PORT = 4223
-UID = "abc" # Change to your UID
+UID = "XYZ" # Change to your UID
 
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_heart_rate import HeartRate
@@ -15,10 +15,9 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    # Get current heart rate (unit is beats per minute)
-    hrate = hr.get_heart_rate()
-
-    print('Heart Rate: ' + str(hrate) + ' bpm')
+    # Get current heart rate (unit is bpm)
+    heart_rate = hr.get_heart_rate()
+    print('Heart Rate: ' + str(heart_rate) + ' bpm')
 
     raw_input('Press key to exit\n') # Use input() in Python 3
     ipcon.disconnect()

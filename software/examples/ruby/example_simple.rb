@@ -8,7 +8,7 @@ include Tinkerforge
 
 HOST = 'localhost'
 PORT = 4223
-UID = 'abc' # Change to your UID
+UID = 'XYZ' # Change to your UID
 
 ipcon = IPConnection.new # Create IP connection
 hr = BrickletHeartRate.new UID, ipcon # Create device object
@@ -16,9 +16,9 @@ hr = BrickletHeartRate.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current heart rate (in beats per minute)
-hrate = hr.get_heart_rate
-puts "Heart Rate(bpm): #{hrate}"
+# Get current heart rate (unit is bpm)
+heart_rate = hr.get_heart_rate
+puts "Heart Rate: #{heart_rate} bpm"
 
 puts 'Press key to exit'
 $stdin.gets

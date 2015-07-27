@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "abc" // Change to your UID
+#define UID "XYZ" // Change to your UID
 
 int main() {
 	// Create IP connection
@@ -14,7 +14,7 @@ int main() {
 
 	// Create device object
 	HeartRate hr;
-	heart_rate_create(&hr, UID, &ipcon); 
+	heart_rate_create(&hr, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -23,14 +23,14 @@ int main() {
 	}
 	// Don't use device before ipcon is connected
 
-	// Get current heart rate in beats per minute
-	uint16_t hrate;
-    if(heart_rate_get_heart_rate(&hr, &hrate) < 0) {
-		fprintf(stderr, "Could not get value, probably timeout\n");
+	// Get current heart rate (unit is bpm)
+	uint16_t heart_rate;
+	if(heart_rate_get_heart_rate(&hr, &heart_rate) < 0) {
+		fprintf(stderr, "Could not get heart rate, probably timeout\n");
 		exit(1);
 	}
 
-	printf("Heart Rate: %d bpm\n", hrate);
+	printf("Heart Rate: %d bpm\n", heart_rate);
 
 	printf("Press key to exit\n");
 	getchar();

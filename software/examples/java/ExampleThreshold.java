@@ -1,10 +1,10 @@
-import com.tinkerforge.BrickletHeartRate;
 import com.tinkerforge.IPConnection;
+import com.tinkerforge.BrickletHeartRate;
 
 public class ExampleThreshold {
 	private static final String HOST = "localhost";
 	private static final int PORT = 4223;
-	private static final String UID = "abc"; // Change to your UID
+	private static final String UID = "XYZ"; // Change to your UID
 
 	// Note: To make the example code cleaner we do not handle exceptions. Exceptions you
 	//       might normally want to catch are described in the documentation
@@ -18,15 +18,13 @@ public class ExampleThreshold {
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		hr.setDebouncePeriod(10000);
 
-		// Add and implement heart rate reached listener
-		// Configure threshold for heart rate values,
-		// Heart Rate(in beats per minute)  : greater than 70
-		hr.setHeartRateCallbackThreshold('>', 50, 70);
+		// Configure threshold for "greater than 100 bpm" (unit is bpm)
+		hr.setHeartRateCallbackThreshold('>', 100, 0);
 
+		// Add threshold reached listener for heart rate greater than 100 bpm (parameter has unit bpm)
 		hr.addHeartRateReachedListener(new BrickletHeartRate.HeartRateReachedListener() {
-			public void heartRateReached(int hrate) {
-				System.out.println("Heart Rate(bpm): " + hrate);
-				System.out.println("");
+			public void heartRateReached(int heartRate) {
+				System.out.println("Heart Rate: " + heartRate + " bpm");
 			}
 		});
 
