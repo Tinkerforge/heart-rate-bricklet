@@ -6,11 +6,11 @@ PORT = 4223
 UID = "XYZ" # Change to your UID
 
 from tinkerforge.ip_connection import IPConnection
-from tinkerforge.bricklet_heart_rate import HeartRate
+from tinkerforge.bricklet_heart_rate import BrickletHeartRate
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
-    hr = HeartRate(UID, ipcon) # Create device object
+    hr = BrickletHeartRate(UID, ipcon) # Create device object
 
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
