@@ -1,4 +1,4 @@
-program Example;
+program ExampleCallback;
 
 {$ifdef MSWINDOWS}{$apptype CONSOLE}{$endif}
 {$ifdef FPC}{$mode OBJFPC}{$H+}{$endif}
@@ -12,25 +12,22 @@ type
     ipcon: TIPConnection;
     hr: TBrickletHeartRate;
   public
-    procedure HeartRateCB(sender: TBrickletHeartRate;
-                      const hrate: Word);
+    procedure HeartRateCB(sender: TBrickletHeartRate; const heartRate: word);
     procedure Execute;
   end;
 
 const
   HOST = 'localhost';
   PORT = 4223;
-  UID = 'abc'; { Change to your UID }
+  UID = 'XYZ'; { Change to your UID }
 
 var
   e: TExample;
 
-{ Callback function for heart rate callback }
-procedure TExample.HeartRateCB(sender: TBrickletHeartRate;
-                           const hrate: Word);
+{ Callback procedure for heart rate callback (parameter has unit bpm) }
+procedure TExample.HeartRateCB(sender: TBrickletHeartRate; const heartRate: word);
 begin
-    WriteLn(Format('Heart Rate(bpm): %u', [hrate]));
-    WriteLn('');
+  WriteLn(Format('Heart Rate: %d bpm', [heartRate]));
 end;
 
 procedure TExample.Execute;
@@ -45,12 +42,12 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Set Period for heart rate callback to 1s (1000ms)
-    Note: The callback is only called every second if the
-          heart has changed since the last call! }
+  { Set period for heart rate callback to 1s (1000ms)
+    Note: The heart rate callback is only called every second
+          if the heart rate has changed since the last call! }
   hr.SetHeartRateCallbackPeriod(1000);
 
-  { Register heart callback to procedure HeartRateCB }
+  { Register heart rate callback to procedure HeartRateCB }
   hr.OnHeartRate := {$ifdef FPC}@{$endif}HeartRateCB;
 
   WriteLn('Press key to exit');

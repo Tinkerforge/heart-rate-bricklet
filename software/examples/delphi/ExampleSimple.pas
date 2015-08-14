@@ -1,4 +1,4 @@
-program Example;
+program ExampleSimple;
 
 {$ifdef MSWINDOWS}{$apptype CONSOLE}{$endif}
 {$ifdef FPC}{$mode OBJFPC}{$H+}{$endif}
@@ -18,13 +18,13 @@ type
 const
   HOST = 'localhost';
   PORT = 4223;
-  UID = 'abc'; { Change to your UID }
+  UID = 'XYZ'; { Change to your UID }
 
 var
   e: TExample;
 
 procedure TExample.Execute;
-var hrate: word;
+var heartRate: word;
 begin
   { Create IP connection }
   ipcon := TIPConnection.Create;
@@ -36,9 +36,9 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Get current heart rate (in beats per minute) }
-  hrate := hr.GetHeartRate;
-  WriteLn(Format('Heart Rate: %d bpm', [hrate]));
+  { Get current heart rate (unit is bpm) }
+  heartRate := hr.GetHeartRate;
+  WriteLn(Format('Heart Rate: %d bpm', [heartRate]));
 
   WriteLn('Press key to exit');
   ReadLn;

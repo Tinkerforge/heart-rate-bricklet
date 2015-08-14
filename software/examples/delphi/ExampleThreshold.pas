@@ -1,4 +1,4 @@
-program Example;
+program ExampleThreshold;
 
 {$ifdef MSWINDOWS}{$apptype CONSOLE}{$endif}
 {$ifdef FPC}{$mode OBJFPC}{$H+}{$endif}
@@ -12,23 +12,22 @@ type
     ipcon: TIPConnection;
     hr: TBrickletHeartRate;
   public
-    procedure ReachedCB(sender: TBrickletHeartRate; const hrate: Word);
+    procedure HeartRateReachedCB(sender: TBrickletHeartRate; const heartRate: word);
     procedure Execute;
   end;
 
 const
   HOST = 'localhost';
   PORT = 4223;
-  UID = 'abc'; { Change to your UID }
+  UID = 'XYZ'; { Change to your UID }
 
 var
   e: TExample;
 
-{ Callback for color threshold reached }
-procedure TExample.ReachedCB(sender: TBrickletHeartRate; const hrate: word);
+{ Callback procedure for heart rate greater than 100 bpm (parameter has unit bpm) }
+procedure TExample.HeartRateReachedCB(sender: TBrickletHeartRate; const heartRate: word);
 begin
-    WriteLn(Format('Heart Rate(bpm): %u', [hrate]));
-    WriteLn('');
+  WriteLn(Format('Heart Rate: %d bpm', [heartRate]));
 end;
 
 procedure TExample.Execute;
@@ -46,12 +45,11 @@ begin
   { Get threshold callbacks with a debounce time of 10 seconds (10000ms) }
   hr.SetDebouncePeriod(10000);
 
-  { Register threshold reached callback to procedure ReachedCB }
-  hr.OnHeartRateReached := {$ifdef FPC}@{$endif}ReachedCB;
+  { Register threshold reached callback to procedure HeartRateReachedCB }
+  hr.OnHeartRateReached := {$ifdef FPC}@{$endif}HeartRateReachedCB;
 
-  { Configure threshold for heart rate values,
-    Heart Rate  : greater than 70 beats per minute }
-  hr.SetHeartRateCallbackThreshold('>', 50, 70);
+  { Configure threshold for "greater than 100 bpm" (unit is bpm) }
+  hr.SetHeartRateCallbackThreshold('>', 100, 0);
 
   WriteLn('Press key to exit');
   ReadLn;
