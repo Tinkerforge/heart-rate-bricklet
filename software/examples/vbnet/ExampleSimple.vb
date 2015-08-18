@@ -1,9 +1,9 @@
 Imports Tinkerforge
 
-Module Example
+Module ExampleSimple
     Const HOST As String = "localhost"
     Const PORT As Integer = 4223
-    Const UID As String = "abc" ' Change to your UID
+    Const UID As String = "XYZ" ' Change to your UID
 
     Sub Main()
         Dim ipcon As New IPConnection() ' Create IP connection
@@ -12,11 +12,9 @@ Module Example
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
-        ' Get current heart rate
-        Dim hrate As Integer
-        hrate = hr.GetHeartRate()
-
-        System.Console.WriteLine("Heart Rate(bpm): " + hrate.ToString())
+        ' Get current heart rate (unit is bpm)
+        Dim heartRate As Integer = hr.GetHeartRate()
+        System.Console.WriteLine("Heart Rate: " + heartRate.ToString() + " bpm")
 
         System.Console.WriteLine("Press key to exit")
         System.Console.ReadLine()
