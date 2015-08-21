@@ -15,7 +15,7 @@ sub cb_heart_rate
 {
     my ($heart_rate) = @_;
 
-    print "Heart Rate: " . $heart_rate . " bpm\n";
+    print "Heart Rate: $heart_rate bpm\n";
 }
 
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
