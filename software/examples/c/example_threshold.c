@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change to your UID
 
-// Callback function for heart rate greater than 100 bpm (parameter has unit bpm)
+// Callback function for heart rate reached callback (parameter has unit bpm)
 void cb_heart_rate_reached(uint16_t heart_rate, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
@@ -33,13 +33,13 @@ int main(void) {
 	// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 	heart_rate_set_debounce_period(&hr, 10000);
 
-	// Register threshold reached callback to function cb_heart_rate_reached
+	// Register heart rate reached callback to function cb_heart_rate_reached
 	heart_rate_register_callback(&hr,
 	                             HEART_RATE_CALLBACK_HEART_RATE_REACHED,
 	                             (void *)cb_heart_rate_reached,
 	                             NULL);
 
-	// Configure threshold for "greater than 100 bpm" (unit is bpm)
+	// Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
 	heart_rate_set_heart_rate_callback_threshold(&hr, '>', 100, 0);
 
 	printf("Press key to exit\n");

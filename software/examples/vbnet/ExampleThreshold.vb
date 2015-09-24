@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleThreshold
@@ -5,9 +6,9 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change to your UID
 
-    ' Callback function for heart rate greater than 100 bpm (parameter has unit bpm)
+    ' Callback subroutine for heart rate reached callback (parameter has unit bpm)
     Sub HeartRateReachedCB(ByVal sender As BrickletHeartRate, ByVal heartRate As Integer)
-        System.Console.WriteLine("Heart Rate: " + heartRate.ToString() + " bpm")
+        Console.WriteLine("Heart Rate: " + heartRate.ToString() + " bpm")
     End Sub
 
     Sub Main()
@@ -20,14 +21,14 @@ Module ExampleThreshold
         ' Get threshold callbacks with a debounce time of 10 seconds (10000ms)
         hr.SetDebouncePeriod(10000)
 
-        ' Register threshold reached callback to function HeartRateReachedCB
+        ' Register heart rate reached callback to subroutine HeartRateReachedCB
         AddHandler hr.HeartRateReached, AddressOf HeartRateReachedCB
 
-        ' Configure threshold for "greater than 100 bpm" (unit is bpm)
+        ' Configure threshold for heart_rate "greater than 100 bpm" (unit is bpm)
         hr.SetHeartRateCallbackThreshold(">"C, 100, 0)
 
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

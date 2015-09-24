@@ -30,16 +30,16 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Set period for heart rate callback to 1s (1000ms)
-	// Note: The heart rate callback is only called every second
-	//       if the heart rate has changed since the last call!
-	heart_rate_set_heart_rate_callback_period(&hr, 1000);
-
 	// Register heart rate callback to function cb_heart_rate
 	heart_rate_register_callback(&hr,
 	                             HEART_RATE_CALLBACK_HEART_RATE,
 	                             (void *)cb_heart_rate,
 	                             NULL);
+
+	// Set period for heart rate callback to 1s (1000ms)
+	// Note: The heart rate callback is only called every second
+	//       if the heart rate has changed since the last call!
+	heart_rate_set_heart_rate_callback_period(&hr, 1000);
 
 	printf("Press key to exit\n");
 	getchar();

@@ -19,12 +19,12 @@ ipcon.connect HOST, PORT # Connect to brickd
 # Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 hr.set_debounce_period 10000
 
-# Register threshold reached callback for heart rate greater than 100 bpm (parameter has unit bpm)
+# Register heart rate reached callback (parameter has unit bpm)
 hr.register_callback(BrickletHeartRate::CALLBACK_HEART_RATE_REACHED) do |heart_rate|
   puts "Heart Rate: #{heart_rate} bpm"
 end
 
-# Configure threshold for "greater than 100 bpm" (unit is bpm)
+# Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
 hr.set_heart_rate_callback_threshold '>', 100, 0
 
 puts 'Press key to exit'

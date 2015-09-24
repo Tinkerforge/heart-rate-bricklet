@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -9,7 +10,7 @@ class Example
 	// Callback function for heart rate callback (parameter has unit bpm)
 	static void HeartRateCB(BrickletHeartRate sender, int heartRate)
 	{
-		System.Console.WriteLine("Heart Rate: " + heartRate + " bpm");
+		Console.WriteLine("Heart Rate: " + heartRate + " bpm");
 	}
 
 	static void Main()
@@ -20,16 +21,16 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
+		// Register heart rate callback to function HeartRateCB
+		hr.HeartRate += HeartRateCB;
+
 		// Set period for heart rate callback to 1s (1000ms)
 		// Note: The heart rate callback is only called every second
 		//       if the heart rate has changed since the last call!
 		hr.SetHeartRateCallbackPeriod(1000);
 
-		// Register heart rate callback to function HeartRateCB
-		hr.HeartRate += HeartRateCB;
-
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

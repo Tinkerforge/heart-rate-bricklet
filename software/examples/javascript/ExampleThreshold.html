@@ -26,33 +26,34 @@
                 textArea.value = "";
                 var HOST = document.getElementById("host").value;
                 var PORT = parseInt(document.getElementById("port").value);
-                var UID  = document.getElementById("uid").value;
+                var UID = document.getElementById("uid").value;
                 if(ipcon !== undefined) {
                     ipcon.disconnect();
                 }
-                ipcon = new Tinkerforge.IPConnection();// Create IP connection
-                var hr = new Tinkerforge.BrickletHeartRate(UID, ipcon);// Create device object
+                ipcon = new Tinkerforge.IPConnection(); // Create IP connection
+                var hr = new Tinkerforge.BrickletHeartRate(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';        
+                        textArea.value += 'Error: ' + error + '\n';
                     }
-                );// Connect to brickd
-
+                ); // Connect to brickd
                 // Don't use device before ipcon is connected
+
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
-                        // Set threshold callbacks with a debounce time of 10 seconds (10000ms)
+                    function (connectReason) {
+                        // Get threshold callbacks with a debounce time of 10 seconds (10000ms)
                         hr.setDebouncePeriod(10000);
-                        // Configure threshold for heart rate values,
-                        // Heart Rate: greater than 70 beats per minute
-                        hr.setHeartRateCallbackThreshold('>', 50, 70);       
+
+                        // Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
+                        hr.setHeartRateCallbackThreshold('>', 100, 0);
                     }
                 );
-                // Register threshold reached callback
+
+                // Register heart rate reached callback
                 hr.on(Tinkerforge.BrickletHeartRate.CALLBACK_HEART_RATE_REACHED,
-                    // Callback for heart rate threshold reached
-                    function(hrate) {
-                        textArea.value += 'Heart Rate: '+hrate+' BPM\n';
+                    // Callback function for heart rate reached callback (parameter has unit bpm)
+                    function (heartRate) {
+                        textArea.value += 'Heart Rate: ' + heartRate + ' bpm\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );
@@ -60,4 +61,3 @@
         </script>
     </body>
 </html>
-

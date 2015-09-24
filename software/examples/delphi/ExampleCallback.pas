@@ -42,13 +42,13 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
+  { Register heart rate callback to procedure HeartRateCB }
+  hr.OnHeartRate := {$ifdef FPC}@{$endif}HeartRateCB;
+
   { Set period for heart rate callback to 1s (1000ms)
     Note: The heart rate callback is only called every second
           if the heart rate has changed since the last call! }
   hr.SetHeartRateCallbackPeriod(1000);
-
-  { Register heart rate callback to procedure HeartRateCB }
-  hr.OnHeartRate := {$ifdef FPC}@{$endif}HeartRateCB;
 
   WriteLn('Press key to exit');
   ReadLn;

@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleSimple
@@ -14,10 +15,10 @@ Module ExampleSimple
 
         ' Get current heart rate (unit is bpm)
         Dim heartRate As Integer = hr.GetHeartRate()
-        System.Console.WriteLine("Heart Rate: " + heartRate.ToString() + " bpm")
+        Console.WriteLine("Heart Rate: " + heartRate.ToString() + " bpm")
 
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

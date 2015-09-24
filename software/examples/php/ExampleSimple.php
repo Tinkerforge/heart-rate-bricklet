@@ -8,19 +8,17 @@ use Tinkerforge\BrickletHeartRate;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = 'abc'; // Change to your UID
+const UID = 'XYZ'; // Change to your UID
 
 $ipcon = new IPConnection(); // Create IP connection
-$c = new BrickletHeartRate(UID, $ipcon); // Create device object
+$hr = new BrickletHeartRate(UID, $ipcon); // Create device object
 
 $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
-// Get current heart rate (in beats per minute)
-$hrate = $c->getHeartRate();
-
-echo "Heart Rate(bpm): ".$hrate."\n";
-echo "\n";
+// Get current heart rate (unit is bpm)
+$heart_rate = $hr->getHeartRate();
+echo "Heart Rate: $heart_rate bpm\n";
 
 echo "Press key to exit\n";
 fgetc(fopen('php://stdin', 'r'));

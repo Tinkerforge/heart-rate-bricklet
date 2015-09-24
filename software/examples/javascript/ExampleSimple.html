@@ -26,29 +26,28 @@
                 textArea.value = "";
                 var HOST = document.getElementById("host").value;
                 var PORT = parseInt(document.getElementById("port").value);
-                var UID  = document.getElementById("uid").value;
+                var UID = document.getElementById("uid").value;
                 if(ipcon !== undefined) {
                     ipcon.disconnect();
                 }
-                ipcon = new Tinkerforge.IPConnection();// Create IP connection
-                var hr = new Tinkerforge.BrickletHeartRate(UID, ipcon);// Create device object
+                ipcon = new Tinkerforge.IPConnection(); // Create IP connection
+                var hr = new Tinkerforge.BrickletHeartRate(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
-                );// Connect to brickd
-
+                ); // Connect to brickd
                 // Don't use device before ipcon is connected
+
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
-                        // Get current heart rate (in beats per minute)
+                    function (connectReason) {
+                        // Get current heart rate (unit is bpm)
                         hr.getHeartRate(
-                            function(hrate) {
-                                textArea.value += 'Heart Rate: '+hrate+' BPM\n';
-                                textArea.scrollTop = textArea.scrollHeight;
+                            function (heartRate) {
+                                textArea.value += 'Heart Rate: ' + heartRate + ' bpm\n';
                             },
-                            function(error) {
-                                textArea.value += 'Error: '+error+'\n';
+                            function (error) {
+                                textArea.value += 'Error: ' + error + '\n';
                             }
                         );
                     }
@@ -57,4 +56,3 @@
         </script>
     </body>
 </html>
-

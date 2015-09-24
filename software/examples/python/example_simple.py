@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     # Get current heart rate (unit is bpm)
     heart_rate = hr.get_heart_rate()
-    print('Heart Rate: ' + str(heart_rate) + ' bpm')
+    print("Heart Rate: " + str(heart_rate) + " bpm")
 
-    raw_input('Press key to exit\n') # Use input() in Python 3
+    raw_input("Press key to exit\n") # Use input() in Python 3
     ipcon.disconnect()

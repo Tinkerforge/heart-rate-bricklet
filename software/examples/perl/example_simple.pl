@@ -15,8 +15,8 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 
 # Get current heart rate (unit is bpm)
 my $heart_rate = $hr->get_heart_rate();
-print "Heart Rate: " . $heart_rate . " bpm\n";
+print "Heart Rate: $heart_rate bpm\n";
 
-print "Press any key to exit...\n";
+print "Press key to exit\n";
 <STDIN>;
 $ipcon->disconnect();

@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleCallback
@@ -5,9 +6,9 @@ Module ExampleCallback
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change to your UID
 
-    ' Callback function for heart rate callback (parameter has unit bpm)
+    ' Callback subroutine for heart rate callback (parameter has unit bpm)
     Sub HeartRateCB(ByVal sender As BrickletHeartRate, ByVal heartRate As Integer)
-        System.Console.WriteLine("Heart Rate: " + heartRate.ToString() + " bpm")
+        Console.WriteLine("Heart Rate: " + heartRate.ToString() + " bpm")
     End Sub
 
     Sub Main()
@@ -17,16 +18,16 @@ Module ExampleCallback
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
+        ' Register heart rate callback to subroutine HeartRateCB
+        AddHandler hr.HeartRate, AddressOf HeartRateCB
+
         ' Set period for heart rate callback to 1s (1000ms)
         ' Note: The heart rate callback is only called every second
         '       if the heart rate has changed since the last call!
         hr.SetHeartRateCallbackPeriod(1000)
 
-        ' Register heart rate callback to function HeartRateCB
-        AddHandler hr.HeartRate, AddressOf HeartRateCB
-
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

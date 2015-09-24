@@ -1,8 +1,7 @@
 #!/bin/sh
-# connects to localhost:4223 by default, use --host and --port to change it
+# Connects to localhost:4223 by default, use --host and --port to change this
 
-# change to your UID
-uid=abc
+uid=XYZ # Change to your UID
 
-# get current heart rate (in beats per minute)
+# Get current heart rate (unit is bpm)
 tinkerforge call heart-rate-bricklet $uid get-heart-rate

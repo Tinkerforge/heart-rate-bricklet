@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -16,10 +17,10 @@ class Example
 
 		// Get current heart rate (unit is bpm)
 		int heartRate = hr.GetHeartRate();
-		System.Console.WriteLine("Heart Rate: " + heartRate + " bpm");
+		Console.WriteLine("Heart Rate: " + heartRate + " bpm");
 
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }
