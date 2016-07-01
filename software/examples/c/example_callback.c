@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "XYZ" // Change to your UID
+#define UID "XYZ" // Change XYZ to the UID of your Heart Rate Bricklet
 
 // Callback function for heart rate callback (parameter has unit bpm)
 void cb_heart_rate(uint16_t heart_rate, void *user_data) {

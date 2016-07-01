@@ -4,7 +4,7 @@ Imports Tinkerforge
 Module ExampleCallback
     Const HOST As String = "localhost"
     Const PORT As Integer = 4223
-    Const UID As String = "XYZ" ' Change to your UID
+    Const UID As String = "XYZ" ' Change XYZ to the UID of your Heart Rate Bricklet
 
     ' Callback subroutine for heart rate callback (parameter has unit bpm)
     Sub HeartRateCB(ByVal sender As BrickletHeartRate, ByVal heartRate As Integer)

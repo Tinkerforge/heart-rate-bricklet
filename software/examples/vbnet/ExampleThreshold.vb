@@ -4,10 +4,11 @@ Imports Tinkerforge
 Module ExampleThreshold
     Const HOST As String = "localhost"
     Const PORT As Integer = 4223
-    Const UID As String = "XYZ" ' Change to your UID
+    Const UID As String = "XYZ" ' Change XYZ to the UID of your Heart Rate Bricklet
 
     ' Callback subroutine for heart rate reached callback (parameter has unit bpm)
-    Sub HeartRateReachedCB(ByVal sender As BrickletHeartRate, ByVal heartRate As Integer)
+    Sub HeartRateReachedCB(ByVal sender As BrickletHeartRate, _
+                           ByVal heartRate As Integer)
         Console.WriteLine("Heart Rate: " + heartRate.ToString() + " bpm")
     End Sub
 

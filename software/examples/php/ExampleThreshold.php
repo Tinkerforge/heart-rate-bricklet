@@ -8,7 +8,7 @@ use Tinkerforge\BrickletHeartRate;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = 'XYZ'; // Change to your UID
+const UID = 'XYZ'; // Change XYZ to the UID of your Heart Rate Bricklet
 
 // Callback function for heart rate reached callback (parameter has unit bpm)
 function cb_heartRateReached($heart_rate)
@@ -26,7 +26,8 @@ $ipcon->connect(HOST, PORT); // Connect to brickd
 $hr->setDebouncePeriod(10000);
 
 // Register heart rate reached callback to function cb_heartRateReached
-$hr->registerCallback(BrickletHeartRate::CALLBACK_HEART_RATE_REACHED, 'cb_heartRateReached');
+$hr->registerCallback(BrickletHeartRate::CALLBACK_HEART_RATE_REACHED,
+                      'cb_heartRateReached');
 
 // Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
 $hr->setHeartRateCallbackThreshold('>', 100, 0);
