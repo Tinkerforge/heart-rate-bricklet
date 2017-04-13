@@ -22,7 +22,7 @@ class Example
 		// Don't use device before ipcon is connected
 
 		// Register heart rate callback to function HeartRateCB
-		hr.HeartRate += HeartRateCB;
+		hr.HeartRateCallback += HeartRateCB;
 
 		// Set period for heart rate callback to 1s (1000ms)
 		// Note: The heart rate callback is only called every second

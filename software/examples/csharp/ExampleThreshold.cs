@@ -25,7 +25,7 @@ class Example
 		hr.SetDebouncePeriod(10000);
 
 		// Register heart rate reached callback to function HeartRateReachedCB
-		hr.HeartRateReached += HeartRateReachedCB;
+		hr.HeartRateReachedCallback += HeartRateReachedCB;
 
 		// Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
 		hr.SetHeartRateCallbackThreshold('>', 100, 0);
