@@ -16,7 +16,7 @@ hr@SetDebouncePeriod[10000]
 (*Callback function for heart rate reached callback (parameter has unit bpm)*)
 HeartRateReachedCB[sender_,heartRate_]:=
  Print["Heart Rate: "<>ToString[N[Quantity[heartRate,"bpm"]]]]
-AddEventHandler[hr@HeartRateReached,HeartRateReachedCB]
+AddEventHandler[hr@HeartRateReachedCallback,HeartRateReachedCB]
 
 (*Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)*)
 option=Tinkerforge`BrickletHeartRate`THRESHOLDUOPTIONUGREATER

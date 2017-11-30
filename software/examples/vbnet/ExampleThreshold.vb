@@ -23,7 +23,7 @@ Module ExampleThreshold
         hr.SetDebouncePeriod(10000)
 
         ' Register heart rate reached callback to subroutine HeartRateReachedCB
-        AddHandler hr.HeartRateReached, AddressOf HeartRateReachedCB
+        AddHandler hr.HeartRateReachedCallback, AddressOf HeartRateReachedCB
 
         ' Configure threshold for heart_rate "greater than 100 bpm" (unit is bpm)
         hr.SetHeartRateCallbackThreshold(">"C, 100, 0)

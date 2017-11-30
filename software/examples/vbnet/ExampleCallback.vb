@@ -19,7 +19,7 @@ Module ExampleCallback
         ' Don't use device before ipcon is connected
 
         ' Register heart rate callback to subroutine HeartRateCB
-        AddHandler hr.HeartRate, AddressOf HeartRateCB
+        AddHandler hr.HeartRateCallback, AddressOf HeartRateCB
 
         ' Set period for heart rate callback to 1s (1000ms)
         ' Note: The heart rate callback is only called every second

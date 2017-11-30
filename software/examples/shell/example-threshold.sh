@@ -10,7 +10,7 @@ tinkerforge call heart-rate-bricklet $uid set-debounce-period 10000
 tinkerforge dispatch heart-rate-bricklet $uid heart-rate-reached &
 
 # Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
-tinkerforge call heart-rate-bricklet $uid set-heart-rate-callback-threshold greater 100 0
+tinkerforge call heart-rate-bricklet $uid set-heart-rate-callback-threshold threshold-option-greater 100 0
 
 echo "Press key to exit"; read dummy
 

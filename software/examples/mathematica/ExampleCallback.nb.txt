@@ -13,7 +13,7 @@ ipcon@Connect[host,port]
 (*Callback function for heart rate callback (parameter has unit bpm)*)
 HeartRateCB[sender_,heartRate_]:=
  Print["Heart Rate: "<>ToString[N[Quantity[heartRate,"bpm"]]]]
-AddEventHandler[hr@HeartRate,HeartRateCB]
+AddEventHandler[hr@HeartRateCallback,HeartRateCB]
 
 (*Set period for heart rate callback to 1s (1000ms)*)
 (*Note: The heart rate callback is only called every second*)
