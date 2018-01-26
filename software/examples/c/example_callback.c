@@ -11,7 +11,7 @@
 void cb_heart_rate(uint16_t heart_rate, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Heart Rate: %d bpm\n", heart_rate);
+	printf("Heart Rate: %u bpm\n", heart_rate);
 }
 
 int main(void) {
