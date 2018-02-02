@@ -23,7 +23,7 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Get current heart rate (unit is bpm)
+	// Get current heart rate
 	uint16_t heart_rate;
 	if(heart_rate_get_heart_rate(&hr, &heart_rate) < 0) {
 		fprintf(stderr, "Could not get heart rate, probably timeout\n");

@@ -7,7 +7,7 @@ use constant HOST => 'localhost';
 use constant PORT => 4223;
 use constant UID => 'XYZ'; # Change XYZ to the UID of your Heart Rate Bricklet
 
-# Callback subroutine for heart rate reached callback (parameter has unit bpm)
+# Callback subroutine for heart rate reached callback
 sub cb_heart_rate_reached
 {
     my ($heart_rate) = @_;
@@ -27,7 +27,7 @@ $hr->set_debounce_period(10000);
 # Register heart rate reached callback to subroutine cb_heart_rate_reached
 $hr->register_callback($hr->CALLBACK_HEART_RATE_REACHED, 'cb_heart_rate_reached');
 
-# Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
+# Configure threshold for heart rate "greater than 100 bpm"
 $hr->set_heart_rate_callback_threshold('>', 100, 0);
 
 print "Press key to exit\n";

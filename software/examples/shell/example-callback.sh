@@ -3,7 +3,7 @@
 
 uid=XYZ # Change XYZ to the UID of your Heart Rate Bricklet
 
-# Handle incoming heart rate callbacks (parameter has unit bpm)
+# Handle incoming heart rate callbacks
 tinkerforge dispatch heart-rate-bricklet $uid heart-rate &
 
 # Set period for heart rate callback to 1s (1000ms)

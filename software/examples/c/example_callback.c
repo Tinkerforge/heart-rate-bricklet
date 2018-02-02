@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change XYZ to the UID of your Heart Rate Bricklet
 
-// Callback function for heart rate callback (parameter has unit bpm)
+// Callback function for heart rate callback
 void cb_heart_rate(uint16_t heart_rate, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 

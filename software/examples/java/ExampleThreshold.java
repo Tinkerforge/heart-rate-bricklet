@@ -20,14 +20,14 @@ public class ExampleThreshold {
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		hr.setDebouncePeriod(10000);
 
-		// Add heart rate reached listener (parameter has unit bpm)
+		// Add heart rate reached listener
 		hr.addHeartRateReachedListener(new BrickletHeartRate.HeartRateReachedListener() {
 			public void heartRateReached(int heartRate) {
 				System.out.println("Heart Rate: " + heartRate + " bpm");
 			}
 		});
 
-		// Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
+		// Configure threshold for heart rate "greater than 100 bpm"
 		hr.setHeartRateCallbackThreshold('>', 100, 0);
 
 		System.out.println("Press key to exit"); System.in.read();

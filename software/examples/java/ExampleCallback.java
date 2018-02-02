@@ -17,7 +17,7 @@ public class ExampleCallback {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Add heart rate listener (parameter has unit bpm)
+		// Add heart rate listener
 		hr.addHeartRateListener(new BrickletHeartRate.HeartRateListener() {
 			public void heartRate(int heartRate) {
 				System.out.println("Heart Rate: " + heartRate + " bpm");

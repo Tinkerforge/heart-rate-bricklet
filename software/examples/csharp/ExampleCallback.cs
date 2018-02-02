@@ -7,7 +7,7 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change XYZ to the UID of your Heart Rate Bricklet
 
-	// Callback function for heart rate callback (parameter has unit bpm)
+	// Callback function for heart rate callback
 	static void HeartRateCB(BrickletHeartRate sender, int heartRate)
 	{
 		Console.WriteLine("Heart Rate: " + heartRate + " bpm");

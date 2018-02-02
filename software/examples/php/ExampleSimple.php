@@ -16,7 +16,7 @@ $hr = new BrickletHeartRate(UID, $ipcon); // Create device object
 $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
-// Get current heart rate (unit is bpm)
+// Get current heart rate
 $heart_rate = $hr->getHeartRate();
 echo "Heart Rate: $heart_rate bpm\n";
 

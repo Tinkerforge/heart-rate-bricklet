@@ -12,7 +12,7 @@ function matlab_example_simple()
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Get current heart rate (unit is bpm)
+    % Get current heart rate
     heartRate = hr.getHeartRate();
     fprintf('Heart Rate: %i bpm\n', heartRate);
 

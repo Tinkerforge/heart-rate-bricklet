@@ -24,7 +24,7 @@ function matlab_example_callback()
     ipcon.disconnect();
 end
 
-% Callback function for heart rate callback (parameter has unit bpm)
+% Callback function for heart rate callback
 function cb_heart_rate(e)
     fprintf('Heart Rate: %i bpm\n', e.heartRate);
 end

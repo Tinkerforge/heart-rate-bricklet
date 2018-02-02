@@ -10,7 +10,7 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Heart Rate Bricklet
 
-// Callback function for heart rate callback (parameter has unit bpm)
+// Callback function for heart rate callback
 function cb_heartRate($heart_rate)
 {
     echo "Heart Rate: $heart_rate bpm\n";

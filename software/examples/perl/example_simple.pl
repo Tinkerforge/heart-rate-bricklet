@@ -13,7 +13,7 @@ my $hr = Tinkerforge::BrickletHeartRate->new(&UID, $ipcon); # Create device obje
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current heart rate (unit is bpm)
+# Get current heart rate
 my $heart_rate = $hr->get_heart_rate();
 print "Heart Rate: $heart_rate bpm\n";
 

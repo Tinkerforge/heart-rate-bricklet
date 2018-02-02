@@ -18,14 +18,14 @@ function matlab_example_threshold()
     % Register heart rate reached callback to function cb_heart_rate_reached
     set(hr, 'HeartRateReachedCallback', @(h, e) cb_heart_rate_reached(e));
 
-    % Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
+    % Configure threshold for heart rate "greater than 100 bpm"
     hr.setHeartRateCallbackThreshold('>', 100, 0);
 
     input('Press key to exit\n', 's');
     ipcon.disconnect();
 end
 
-% Callback function for heart rate reached callback (parameter has unit bpm)
+% Callback function for heart rate reached callback
 function cb_heart_rate_reached(e)
     fprintf('Heart Rate: %i bpm\n', e.heartRate);
 end

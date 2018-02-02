@@ -8,7 +8,7 @@ UID = "XYZ" # Change XYZ to the UID of your Heart Rate Bricklet
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_heart_rate import BrickletHeartRate
 
-# Callback function for heart rate callback (parameter has unit bpm)
+# Callback function for heart rate callback
 def cb_heart_rate(heart_rate):
     print("Heart Rate: " + str(heart_rate) + " bpm")
 

@@ -6,7 +6,7 @@ Module ExampleCallback
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Heart Rate Bricklet
 
-    ' Callback subroutine for heart rate callback (parameter has unit bpm)
+    ' Callback subroutine for heart rate callback
     Sub HeartRateCB(ByVal sender As BrickletHeartRate, ByVal heartRate As Integer)
         Console.WriteLine("Heart Rate: " + heartRate.ToString() + " bpm")
     End Sub

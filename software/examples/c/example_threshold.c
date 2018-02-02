@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change XYZ to the UID of your Heart Rate Bricklet
 
-// Callback function for heart rate reached callback (parameter has unit bpm)
+// Callback function for heart rate reached callback
 void cb_heart_rate_reached(uint16_t heart_rate, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
@@ -39,7 +39,7 @@ int main(void) {
 	                             (void *)cb_heart_rate_reached,
 	                             NULL);
 
-	// Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
+	// Configure threshold for heart rate "greater than 100 bpm"
 	heart_rate_set_heart_rate_callback_threshold(&hr, '>', 100, 0);
 
 	printf("Press key to exit\n");

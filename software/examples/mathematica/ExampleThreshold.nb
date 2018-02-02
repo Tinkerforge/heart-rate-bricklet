@@ -22,12 +22,12 @@ Notebook[{
    RowBox[{"hr", "@", RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Callback function for heart rate reached callback (parameter has unit bpm)", "*)"}],
+   RowBox[{"(*", "Callback function for heart rate reached callback", "*)"}],
    RowBox[{RowBox[{"HeartRateReachedCB", "[", RowBox[{"sender_", ",", "heartRate_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Heart Rate: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"heartRate", ",", "\"\<bpm\>\""}], "]"}], "]"}], "]"}]}], "]"}]}],
    RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"hr", "@", "HeartRateReachedCallback"}], ",", "HeartRateReachedCB"}], "]"}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Configure threshold for heart rate ", "\"\<greater than 100 bpm\>\"", " (unit is bpm)", "*)"}],
+   RowBox[{"(*", "Configure threshold for heart rate ", "\"\<greater than 100 bpm\>\"", "", "*)"}],
    RowBox[{"option", "=", "Tinkerforge`BrickletHeartRate`THRESHOLDUOPTIONUGREATER"}],
    RowBox[{"hr", "@", RowBox[{"SetHeartRateCallbackThreshold", "[", RowBox[{"option", ",", "100", ",", "0"}], "]"}]}],
    RowBox[{"

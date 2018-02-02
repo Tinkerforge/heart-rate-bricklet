@@ -7,7 +7,7 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change XYZ to the UID of your Heart Rate Bricklet
 
-	// Callback function for heart rate reached callback (parameter has unit bpm)
+	// Callback function for heart rate reached callback
 	static void HeartRateReachedCB(BrickletHeartRate sender, int heartRate)
 	{
 		Console.WriteLine("Heart Rate: " + heartRate + " bpm");
@@ -27,7 +27,7 @@ class Example
 		// Register heart rate reached callback to function HeartRateReachedCB
 		hr.HeartRateReachedCallback += HeartRateReachedCB;
 
-		// Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
+		// Configure threshold for heart rate "greater than 100 bpm"
 		hr.SetHeartRateCallbackThreshold('>', 100, 0);
 
 		Console.WriteLine("Press enter to exit");

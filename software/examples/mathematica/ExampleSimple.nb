@@ -18,7 +18,7 @@ Notebook[{
    RowBox[{"ipcon", "@", RowBox[{"Connect", "[", RowBox[{"host", ",", "port"}], "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Get current heart rate (unit is bpm)", "*)"}],
+   RowBox[{"(*", "Get current heart rate", "*)"}],
    RowBox[{"Print", "[", RowBox[{"\"\<Heart Rate: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{RowBox[{"hr", "@", RowBox[{"GetHeartRate", "[", "]"}]}], ",", "\"\<bpm\>\""}], "]"}], "]"}], "]"}]}], "]"}],
    RowBox[{"
 "}],

@@ -23,7 +23,7 @@ function octave_example_callback()
     ipcon.disconnect();
 end
 
-% Callback function for heart rate callback (parameter has unit bpm)
+% Callback function for heart rate callback
 function cb_heart_rate(e)
     fprintf("Heart Rate: %d bpm\n", e.heartRate);
 end

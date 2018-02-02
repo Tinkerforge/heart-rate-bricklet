@@ -24,7 +24,7 @@ const
 var
   e: TExample;
 
-{ Callback procedure for heart rate callback (parameter has unit bpm) }
+{ Callback procedure for heart rate callback }
 procedure TExample.HeartRateCB(sender: TBrickletHeartRate; const heartRate: word);
 begin
   WriteLn(Format('Heart Rate: %d bpm', [heartRate]));

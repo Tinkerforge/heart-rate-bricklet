@@ -13,7 +13,7 @@ Module ExampleSimple
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
-        ' Get current heart rate (unit is bpm)
+        ' Get current heart rate
         Dim heartRate As Integer = hr.GetHeartRate()
         Console.WriteLine("Heart Rate: " + heartRate.ToString() + " bpm")
 

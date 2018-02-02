@@ -10,7 +10,7 @@ ipcon=NETNew["Tinkerforge.IPConnection"]
 hr=NETNew["Tinkerforge.BrickletHeartRate",uid,ipcon]
 ipcon@Connect[host,port]
 
-(*Get current heart rate (unit is bpm)*)
+(*Get current heart rate*)
 Print["Heart Rate: "<>ToString[N[Quantity[hr@GetHeartRate[],"bpm"]]]]
 
 (*Clean up*)

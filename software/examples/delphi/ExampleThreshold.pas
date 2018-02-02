@@ -24,7 +24,7 @@ const
 var
   e: TExample;
 
-{ Callback procedure for heart rate reached callback (parameter has unit bpm) }
+{ Callback procedure for heart rate reached callback }
 procedure TExample.HeartRateReachedCB(sender: TBrickletHeartRate; const heartRate: word);
 begin
   WriteLn(Format('Heart Rate: %d bpm', [heartRate]));
@@ -48,7 +48,7 @@ begin
   { Register heart rate reached callback to procedure HeartRateReachedCB }
   hr.OnHeartRateReached := {$ifdef FPC}@{$endif}HeartRateReachedCB;
 
-  { Configure threshold for heart rate "greater than 100 bpm" (unit is bpm) }
+  { Configure threshold for heart rate "greater than 100 bpm" }
   hr.SetHeartRateCallbackThreshold('>', 100, 0);
 
   WriteLn('Press key to exit');

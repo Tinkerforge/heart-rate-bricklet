@@ -6,7 +6,7 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Heart Rate Bricklet
 
-    ' Callback subroutine for heart rate reached callback (parameter has unit bpm)
+    ' Callback subroutine for heart rate reached callback
     Sub HeartRateReachedCB(ByVal sender As BrickletHeartRate, _
                            ByVal heartRate As Integer)
         Console.WriteLine("Heart Rate: " + heartRate.ToString() + " bpm")
@@ -25,7 +25,7 @@ Module ExampleThreshold
         ' Register heart rate reached callback to subroutine HeartRateReachedCB
         AddHandler hr.HeartRateReachedCallback, AddressOf HeartRateReachedCB
 
-        ' Configure threshold for heart_rate "greater than 100 bpm" (unit is bpm)
+        ' Configure threshold for heart_rate "greater than 100 bpm"
         hr.SetHeartRateCallbackThreshold(">"C, 100, 0)
 
         Console.WriteLine("Press key to exit")

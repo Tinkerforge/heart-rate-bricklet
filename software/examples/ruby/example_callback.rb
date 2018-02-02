@@ -16,7 +16,7 @@ hr = BrickletHeartRate.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Register heart rate callback (parameter has unit bpm)
+# Register heart rate callback
 hr.register_callback(BrickletHeartRate::CALLBACK_HEART_RATE) do |heart_rate|
   puts "Heart Rate: #{heart_rate} bpm"
 end

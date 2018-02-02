@@ -16,7 +16,7 @@ hr = BrickletHeartRate.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current heart rate (unit is bpm)
+# Get current heart rate
 heart_rate = hr.get_heart_rate
 puts "Heart Rate: #{heart_rate} bpm"
 

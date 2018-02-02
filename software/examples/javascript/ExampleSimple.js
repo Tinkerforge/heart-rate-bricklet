@@ -16,7 +16,7 @@ ipcon.connect(HOST, PORT,
 
 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function (connectReason) {
-        // Get current heart rate (unit is bpm)
+        // Get current heart rate
         hr.getHeartRate(
             function (heartRate) {
                 console.log('Heart Rate: ' + heartRate + ' bpm');

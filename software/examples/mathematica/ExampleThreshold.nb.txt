@@ -13,12 +13,12 @@ ipcon@Connect[host,port]
 (*Get threshold callbacks with a debounce time of 10 seconds (10000ms)*)
 hr@SetDebouncePeriod[10000]
 
-(*Callback function for heart rate reached callback (parameter has unit bpm)*)
+(*Callback function for heart rate reached callback*)
 HeartRateReachedCB[sender_,heartRate_]:=
  Print["Heart Rate: "<>ToString[N[Quantity[heartRate,"bpm"]]]]
 AddEventHandler[hr@HeartRateReachedCallback,HeartRateReachedCB]
 
-(*Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)*)
+(*Configure threshold for heart rate "greater than 100 bpm"*)
 option=Tinkerforge`BrickletHeartRate`THRESHOLDUOPTIONUGREATER
 hr@SetHeartRateCallbackThreshold[option,100,0]
 

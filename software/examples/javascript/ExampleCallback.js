@@ -25,7 +25,7 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
 
 // Register heart rate callback
 hr.on(Tinkerforge.BrickletHeartRate.CALLBACK_HEART_RATE,
-    // Callback function for heart rate callback (parameter has unit bpm)
+    // Callback function for heart rate callback
     function (heartRate) {
         console.log('Heart Rate: ' + heartRate + ' bpm');
     }

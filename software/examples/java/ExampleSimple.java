@@ -17,7 +17,7 @@ public class ExampleSimple {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current heart rate (unit is bpm)
+		// Get current heart rate
 		int heartRate = hr.getHeartRate(); // Can throw com.tinkerforge.TimeoutException
 		System.out.println("Heart Rate: " + heartRate + " bpm");
 

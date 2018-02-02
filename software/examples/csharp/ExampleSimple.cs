@@ -15,7 +15,7 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current heart rate (unit is bpm)
+		// Get current heart rate
 		int heartRate = hr.GetHeartRate();
 		Console.WriteLine("Heart Rate: " + heartRate + " bpm");
 

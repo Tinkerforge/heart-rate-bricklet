@@ -19,14 +19,14 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
         // Get threshold callbacks with a debounce time of 10 seconds (10000ms)
         hr.setDebouncePeriod(10000);
 
-        // Configure threshold for heart rate "greater than 100 bpm" (unit is bpm)
+        // Configure threshold for heart rate "greater than 100 bpm"
         hr.setHeartRateCallbackThreshold('>', 100, 0);
     }
 );
 
 // Register heart rate reached callback
 hr.on(Tinkerforge.BrickletHeartRate.CALLBACK_HEART_RATE_REACHED,
-    // Callback function for heart rate reached callback (parameter has unit bpm)
+    // Callback function for heart rate reached callback
     function (heartRate) {
         console.log('Heart Rate: ' + heartRate + ' bpm');
     }

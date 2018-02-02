@@ -36,7 +36,7 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Get current heart rate (unit is bpm) }
+  { Get current heart rate }
   heartRate := hr.GetHeartRate;
   WriteLn(Format('Heart Rate: %d bpm', [heartRate]));
 

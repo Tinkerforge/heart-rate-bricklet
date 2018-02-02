@@ -10,7 +10,7 @@ ipcon=NETNew["Tinkerforge.IPConnection"]
 hr=NETNew["Tinkerforge.BrickletHeartRate",uid,ipcon]
 ipcon@Connect[host,port]
 
-(*Callback function for heart rate callback (parameter has unit bpm)*)
+(*Callback function for heart rate callback*)
 HeartRateCB[sender_,heartRate_]:=
  Print["Heart Rate: "<>ToString[N[Quantity[heartRate,"bpm"]]]]
 AddEventHandler[hr@HeartRateCallback,HeartRateCB]

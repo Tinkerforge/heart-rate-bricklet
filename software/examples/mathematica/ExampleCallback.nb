@@ -18,7 +18,7 @@ Notebook[{
    RowBox[{"ipcon", "@", RowBox[{"Connect", "[", RowBox[{"host", ",", "port"}], "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Callback function for heart rate callback (parameter has unit bpm)", "*)"}],
+   RowBox[{"(*", "Callback function for heart rate callback", "*)"}],
    RowBox[{RowBox[{"HeartRateCB", "[", RowBox[{"sender_", ",", "heartRate_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Heart Rate: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"heartRate", ",", "\"\<bpm\>\""}], "]"}], "]"}], "]"}]}], "]"}]}],
    RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"hr", "@", "HeartRateCallback"}], ",", "HeartRateCB"}], "]"}],
    RowBox[{"
