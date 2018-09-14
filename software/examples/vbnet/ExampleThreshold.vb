@@ -25,7 +25,7 @@ Module ExampleThreshold
         ' Register heart rate reached callback to subroutine HeartRateReachedCB
         AddHandler hr.HeartRateReachedCallback, AddressOf HeartRateReachedCB
 
-        ' Configure threshold for heart_rate "greater than 100 bpm"
+        ' Configure threshold for heart rate "greater than 100 bpm"
         hr.SetHeartRateCallbackThreshold(">"C, 100, 0)
 
         Console.WriteLine("Press key to exit")
