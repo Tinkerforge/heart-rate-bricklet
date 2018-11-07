@@ -15,10 +15,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     // Get threshold receivers with a debounce time of 10 seconds (10000ms).
     hr.set_debounce_period(10000);
 
-    // Create receiver for heart rate reached events.
-    let heart_rate_reached_receiver = hr.get_heart_rate_reached_receiver();
+    let heart_rate_reached_receiver = hr.get_heart_rate_reached_callback_receiver();
 
-    // Spawn thread to handle received events. This thread ends when the `hr` object
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `hr` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
         for heart_rate_reached in heart_rate_reached_receiver {
