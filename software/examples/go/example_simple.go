@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"tinkerforge/heart_rate_bricklet"
-	"tinkerforge/ipconnection"
+	"github.com/tinkerforge/go-api-bindings/heart_rate_bricklet"
+	"github.com/tinkerforge/go-api-bindings/ipconnection"
 )
 
 const ADDR string = "localhost:4223"
