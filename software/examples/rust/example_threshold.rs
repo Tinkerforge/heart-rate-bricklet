@@ -1,8 +1,5 @@
-use std::{io, error::Error};
-use std::thread;
-use tinkerforge::{ip_connection::IpConnection, 
-                  heart_rate_bricklet::*};
-
+use std::{error::Error, io, thread};
+use tinkerforge::{heart_rate_bricklet::*, ip_connection::IpConnection};
 
 const HOST: &str = "localhost";
 const PORT: u16 = 4223;
@@ -13,24 +10,24 @@ fn main() -> Result<(), Box<dyn Error>> {
     let hr = HeartRateBricklet::new(UID, &ipcon); // Create device object.
 
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
-    // Don't use device before ipcon is connected.
+                                          // Don't use device before ipcon is connected.
 
-		// Get threshold receivers with a debounce time of 10 seconds (10000ms).
-		hr.set_debounce_period(10000);
+    // Get threshold receivers with a debounce time of 10 seconds (10000ms).
+    hr.set_debounce_period(10000);
 
-     let heart_rate_reached_receiver = hr.get_heart_rate_reached_callback_receiver();
+    let heart_rate_reached_receiver = hr.get_heart_rate_reached_callback_receiver();
 
-        // Spawn thread to handle received callback messages. 
-        // This thread ends when the `hr` object
-        // is dropped, so there is no need for manual cleanup.
-        thread::spawn(move || {
-            for heart_rate_reached in heart_rate_reached_receiver {           
-                		println!("Heart Rate: {} bpm", heart_rate_reached);
-            }
-        });
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `hr` object
+    // is dropped, so there is no need for manual cleanup.
+    thread::spawn(move || {
+        for heart_rate_reached in heart_rate_reached_receiver {
+            println!("Heart Rate: {} bpm", heart_rate_reached);
+        }
+    });
 
-		// Configure threshold for heart rate "greater than 100 bpm".
-		hr.set_heart_rate_callback_threshold('>', 100, 0);
+    // Configure threshold for heart rate "greater than 100 bpm".
+    hr.set_heart_rate_callback_threshold('>', 100, 0);
 
     println!("Press enter to exit.");
     let mut _input = String::new();
