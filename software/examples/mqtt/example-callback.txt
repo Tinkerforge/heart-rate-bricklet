@@ -4,6 +4,7 @@ setup:
 	# Handle incoming heart rate callbacks
 	subscribe to tinkerforge/callback/heart_rate_bricklet/XYZ/heart_rate
 	publish '{"register": true}' to tinkerforge/register/heart_rate_bricklet/XYZ/heart_rate # Register heart_rate callback
+	
 	# Set period for heart rate callback to 1s (1000ms)
 	# Note: The heart rate callback is only called every second
 	#       if the heart rate has changed since the last call!

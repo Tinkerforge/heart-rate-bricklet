@@ -2,5 +2,5 @@
 
 setup:
 	# Get current heart rate
-	subscribe to tinkerforge/response/heart_rate/XYZ/get_heart_rate
+	subscribe to tinkerforge/response/heart_rate_bricklet/XYZ/get_heart_rate
 	publish '' to tinkerforge/request/heart_rate_bricklet/XYZ/get_heart_rate 

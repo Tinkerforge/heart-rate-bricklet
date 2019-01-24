@@ -3,8 +3,10 @@
 setup:
 	# Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 	publish '{"debounce": 10000}' to tinkerforge/request/heart-rate_bricklet/XYZ/set_debounce_period
+	
 	# Handle incoming heart rate reached callbacks
 	subscribe to tinkerforge/callback/heart_rate_bricklet/XYZ/heart_rate_reached
 	publish '{"register": true}' to tinkerforge/register/heart_rate_bricklet/XYZ/heart_rate_reached # Register heart_rate_reached callback
+	
 	# Configure threshold for heart rate "greater than 100 bpm"
-	publish '{"option": "greater", "min_heart_rate": 100, "max_heart_rate": 0}' to tinkerforge/request/heart_rate_bricklet/XYZ/set_heart_rate_callback_threshold
+	publish '{"option": "greater", "min": 100, "max": 0}' to tinkerforge/request/heart_rate_bricklet/XYZ/set_heart_rate_callback_threshold
