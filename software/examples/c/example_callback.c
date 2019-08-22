@@ -33,7 +33,7 @@ int main(void) {
 	// Register heart rate callback to function cb_heart_rate
 	heart_rate_register_callback(&hr,
 	                             HEART_RATE_CALLBACK_HEART_RATE,
-	                             (void *)cb_heart_rate,
+	                             (void (*)(void))cb_heart_rate,
 	                             NULL);
 
 	// Set period for heart rate callback to 1s (1000ms)

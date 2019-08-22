@@ -36,7 +36,7 @@ int main(void) {
 	// Register heart rate reached callback to function cb_heart_rate_reached
 	heart_rate_register_callback(&hr,
 	                             HEART_RATE_CALLBACK_HEART_RATE_REACHED,
-	                             (void *)cb_heart_rate_reached,
+	                             (void (*)(void))cb_heart_rate_reached,
 	                             NULL);
 
 	// Configure threshold for heart rate "greater than 100 bpm"
